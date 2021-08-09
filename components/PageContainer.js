@@ -14,7 +14,6 @@ const PageContainer = ({ children, title }) => {
         {title}
       </Heading>
       {children}
-      <Text>Test</Text>
     </VStack>
   );
 };

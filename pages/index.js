@@ -9,7 +9,7 @@ export default function Home() {
       <Actions switchName="Second Page" />
 
       <MyButton>Me</MyButton>
-      <MyDarkModeSwitch>Mine</MyDarkModeSwitch>
+
     </PageContainer>
   );
 }
