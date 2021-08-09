@@ -8,7 +8,6 @@ import { createBreakpoints } from '@chakra-ui/theme-tools';
 import { Button } from '@chakra-ui/button';
 import '@fontsource/raleway';
 import '@fontsource/poppins';
-import styled from 'styled-components';
 import { useColorModeValue as mode } from '@chakra-ui/color-mode';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 
@@ -37,12 +36,20 @@ export const MyDarkModeSwitch = ({ children }) => {
   );
 };
 
-const hoverStyle = {
+const lightHoverStyle = {
   boxShadow: '7px 7px 7px 7px  rgba(223, 3, 172, 0.2)',
-  textShadow: '1px 1px #ff0000',
+  textShadow: '1px 1px #1100ff',
   transition: 'all .2s ease-out',
-  background: '#62ff00',
+  background: '#f3e8e0',
   color: 'black',
+  fontWeight: '400',
+};
+const darkHoverStyle = {
+  boxShadow: '7px 7px 7px 7px  rgba(223, 3, 172, 0.2)',
+  textShadow: '1px 1px #1100ff',
+  transition: 'all .2s ease-out',
+  background: '#3f00eb',
+  color: '#f7f7ff',
   fontWeight: '400',
 };
 const pressedStyle = {
@@ -59,19 +66,23 @@ export const MyButton = ({ children }) => {
     dark: 'white',
   };
   const bgColor = {
-    light: 'gray.300',
-    dark: 'black',
+    light: 'blue.100',
+    dark: 'blue.400',
+  };
+  const bgHoverColor = {
+    light: darkHoverStyle,
+    dark: lightHoverStyle,
   };
   return (
     <div>
       <Button
         transition="0.5s"
         boxShadow="3px 3px 3px 3px rgba(0, 0, 255, 0.2)"
-        bg={mode('red.500', 'blue.500')}
+        bg={bgColor[colorMode]}
         color={iconColor[colorMode]}
         p="10px"
         m="10px"
-        _hover={hoverStyle}
+        _hover={bgHoverColor[colorMode]}
         _active={pressedStyle}
       >
         {children}
